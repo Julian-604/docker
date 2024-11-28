@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recent Records</title>
+</head>
+<body>
+    <h1>Recent Records</h1>
+    <ul>
+        {% for record in records %}
+            <li>{{ record[9] }} - {{ record[0] }} | {{ record[1] }} | {{ record[2] }} | {{ record[3] }} | {{ record[4] }} | {{ record[5] }} | {{ record[6] }} | {{ record[7] }} | {{ record[8] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
