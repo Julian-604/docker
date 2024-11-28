@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel CRUD</title>
+</head>
+<body>
+    <h1>Search Records</h1>
+    <form action="/search" method="get">
+        <input type="text" name="query" placeholder="Search..." value="{{ search_query or '' }}" style="width: 300px; height: 40px;">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if records %}
+        <table>
+            <tr>
+                <th>PIS Number | Name</th>
+                <th>IP Address | MAC Address</th>
+                <th>Switch IP | Switch Port</th>
+                <th>Building | Room | Ext</th>
+            </tr>
+            {% for record in records %}
+                <tr>
+                    <td>{{ record[0] }} | {{ record[1] }}</td>
+                    <td>{{ record[2] }} | {{ record[3] }}</td>
+                    <td>{{ record[4] }} | {{ record[5] }}</td>
+                    <td>{{ record[6] }} | {{ record[7] }} | {{ record[8] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No records found</p>
+    {% endif %}
+
+    <a href="/create">Create New Record</a>
+    <a href="/recents">Recent Records</a>
+    <a href="/download">Download Records</a>
+</body>
+</html>
